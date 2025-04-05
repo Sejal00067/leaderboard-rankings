@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -97,5 +98,284 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+}
+
+/* Custom Leaderboard Styles */
+.leaderboard-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.leaderboard-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.leaderboard-title {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.leaderboard-subtitle {
+  font-size: 1rem;
+  color: #666;
+}
+
+.top-ranks {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #fff;
+  padding: 20px 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.top-ranks-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.rank-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 120px;
+  transition: transform 0.3s ease;
+}
+
+.rank-card:hover {
+  transform: translateY(-5px);
+}
+
+.first-place {
+  background: linear-gradient(135deg, #FFD700, #FFC107);
+  padding-top: 30px;
+  z-index: 3;
+  height: 180px;
+}
+
+.second-place {
+  background: linear-gradient(135deg, #C0C0C0, #E0E0E0);
+  padding-top: 20px;
+  z-index: 2;
+  height: 160px;
+}
+
+.third-place {
+  background: linear-gradient(135deg, #CD7F32, #D2691E);
+  padding-top: 10px;
+  z-index: 1;
+  height: 140px;
+}
+
+.rank-position {
+  position: absolute;
+  top: -15px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: white;
+}
+
+.rank-position-1 {
+  background-color: #FFD700;
+}
+
+.rank-position-2 {
+  background-color: #C0C0C0;
+}
+
+.rank-position-3 {
+  background-color: #CD7F32;
+}
+
+.rank-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid white;
+}
+
+.rank-name {
+  margin: 10px 0 5px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+
+.rank-points {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 30px 0;
+}
+
+.pagination li {
+  margin: 0 5px;
+}
+
+.pagination button {
+  width: 40px;
+  height: 40px;
+  border: none;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pagination button:hover {
+  background-color: #ddd;
+}
+
+.pagination button.active {
+  background-color: #007bff;
+  color: white;
+}
+
+.ranks-list {
+  margin-top: 20px;
+}
+
+.rank-item {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+}
+
+.rank-item:hover {
+  transform: translateX(5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.rank-item-position {
+  font-weight: bold;
+  font-size: 1.2rem;
+  min-width: 40px;
+  text-align: center;
+  color: #333;
+}
+
+.rank-item-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 15px;
+}
+
+.rank-item-name {
+  flex: 1;
+  font-weight: 500;
+  color: #333;
+}
+
+.rank-item-points {
+  font-weight: bold;
+  color: #007bff;
+  padding-right: 10px;
+}
+
+@media (max-width: 768px) {
+  .leaderboard-container {
+    padding: 10px;
+  }
+
+  .top-ranks-container {
+    gap: 10px;
+  }
+
+  .rank-card {
+    width: 90px;
+    padding: 10px;
+  }
+
+  .first-place {
+    height: 160px;
+  }
+
+  .second-place {
+    height: 140px;
+  }
+
+  .third-place {
+    height: 120px;
+  }
+
+  .rank-avatar {
+    width: 50px;
+    height: 50px;
+  }
+
+  .leaderboard-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .top-ranks-container {
+    gap: 5px;
+  }
+
+  .rank-card {
+    width: 80px;
+    padding: 8px;
+  }
+
+  .rank-avatar {
+    width: 40px;
+    height: 40px;
+  }
+
+  .first-place {
+    height: 140px;
+  }
+
+  .second-place {
+    height: 120px;
+  }
+
+  .third-place {
+    height: 100px;
+  }
+
+  .leaderboard-title {
+    font-size: 1.8rem;
   }
 }
